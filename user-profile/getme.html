@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -10,54 +10,72 @@
   <body>
     <main class="profile-shell">
       <section class="profile-card">
-        <header class="profile-head">
-          <div class="avatar" aria-hidden="true">Z</div>
-          <div>
-            <p class="kicker">Authenticated Session</p>
-            <h1 class="profile-title">Welcome, Zoro</h1>
-            <p class="profile-subtitle">Your account details and security status.</p>
+        <div id="profile-loading" class="profile-loading">
+          <p class="loading-title">Fetching your profile...</p>
+          <div class="loading-track" aria-hidden="true">
+            <div class="loading-fill" id="loading-fill"></div>
           </div>
-        </header>
+          <p class="loading-percent"><span id="loading-percent">0</span>%</p>
+        </div>
 
-        <section class="stats-grid">
-          <article class="stat-box">
-            <p class="stat-label">Role</p>
-            <p class="stat-value">USER</p>
-          </article>
-          <article class="stat-box">
-            <p class="stat-label">Status</p>
-            <p class="stat-value success">Active</p>
-          </article>
-          <article class="stat-box">
-            <p class="stat-label">Profile ID</p>
-            <p class="stat-value">USR-001</p>
-          </article>
-        </section>
+        <div id="profile-content" class="profile-content hidden">
+          <header class="profile-head">
+            <img id="avatar-img" class="avatar-img" src="https://via.placeholder.com/200x200.png" alt="User avatar" />
+            <div>
+              <p class="kicker">Your Profile</p>
+              <h1 id="profile-title" class="profile-title">Welcome</h1>
+              <p class="profile-subtitle">Your account details and security status.</p>
+            </div>
+          </header>
 
-        <section class="details-panel">
-          <h2>Profile Information</h2>
-          <div class="detail-row">
-            <span>Username</span>
-            <strong>zoro</strong>
-          </div>
-          <div class="detail-row">
-            <span>Email</span>
-            <strong>zoro@example.com</strong>
-          </div>
-          <div class="detail-row">
-            <span>Last Login</span>
-            <strong>Today</strong>
-          </div>
-          <div class="detail-row">
-            <span>Security</span>
-            <strong>Password Protected</strong>
-          </div>
-        </section>
+          <section class="stats-grid">
+            <article class="stat-box">
+              <p class="stat-label">Role</p>
+              <p id="role-value" class="stat-value">-</p>
+            </article>
+            <article class="stat-box">
+              <p class="stat-label">Status</p>
+              <p class="stat-value success">Active</p>
+            </article>
+            <article class="stat-box">
+              <p class="stat-label">Profile ID</p>
+              <p id="id-value" class="stat-value">-</p>
+            </article>
+          </section>
 
-        <footer class="profile-actions">
-          <a class="auth-btn logout-btn" href="../logout-user/logout.html">Logout</a>
-        </footer>
+          <section class="details-panel">
+            <h2>Profile Information</h2>
+            <div class="detail-row">
+              <span>Username</span>
+              <strong id="username-value">-</strong>
+            </div>
+            <div class="detail-row">
+              <span>Email</span>
+              <strong id="email-value">-</strong>
+            </div>
+            <div class="detail-row">
+              <span>Login Type</span>
+              <strong id="login-type-value">-</strong>
+            </div>
+            <div class="detail-row">
+              <span>Email Verified</span>
+              <strong id="verified-value">-</strong>
+            </div>
+            <div class="detail-row">
+              <span>Created</span>
+              <strong id="created-value">-</strong>
+            </div>
+          </section>
+
+          <footer class="profile-actions">
+            <a class="auth-btn logout-btn" href="../index.html" id="logout-btn">Logout</a>
+          </footer>
+        </div>
       </section>
     </main>
+
+    <div id="toast-wrap" class="toast-wrap" aria-live="polite" aria-atomic="true"></div>
+
+    <script src="./getme.js"></script>
   </body>
 </html>

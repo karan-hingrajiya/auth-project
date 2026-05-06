@@ -102,10 +102,23 @@ async function loginUser(event) {
       return;
     }
 
+    const accessToken = data?.data?.accessToken;
+    const user = data?.data?.user;
+
+    if (!accessToken) {
+      showToast("Login response is incomplete. Please try again.", "error");
+      return;
+    }
+
+    localStorage.setItem("accessToken", accessToken);
+    if (user) {
+      localStorage.setItem("user", JSON.stringify(user));
+    }
+
     showToast("Login successful. Welcome back.", "success");
     loginForm.reset();
     setTimeout(() => {
-      window.location.href = "../user-profile/getme.html";
+      window.location.href = "./user-profile/getme.html";
     }, 700);
   } catch (error) {
     showToast("Network issue. Check your connection and retry.", "error");

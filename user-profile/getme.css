@@ -1,4 +1,4 @@
-.profile-shell {
+﻿.profile-shell {
   min-height: 100vh;
   padding: 28px 16px;
   display: grid;
@@ -16,6 +16,42 @@
   animation: rise 0.45s ease-out both;
 }
 
+.hidden {
+  display: none;
+}
+
+.profile-loading {
+  padding: 6px 0;
+}
+
+.loading-title {
+  margin: 0 0 10px;
+  color: #d7e3f5;
+  font-size: 1.02rem;
+}
+
+.loading-track {
+  width: 100%;
+  height: 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+}
+
+.loading-fill {
+  width: 0%;
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #39c89f, #8df3d2);
+  transition: width 0.25s ease;
+}
+
+.loading-percent {
+  margin: 10px 0 0;
+  color: var(--muted);
+  font-size: 0.94rem;
+}
+
 .profile-head {
   display: flex;
   align-items: center;
@@ -23,16 +59,12 @@
   margin-bottom: 18px;
 }
 
-.avatar {
-  width: 62px;
-  height: 62px;
+.avatar-img {
+  width: 64px;
+  height: 64px;
   border-radius: 50%;
-  display: grid;
-  place-items: center;
-  font-size: 1.28rem;
-  font-weight: 700;
-  color: #072015;
-  background: linear-gradient(135deg, #42dcb0, #8df3d2);
+  object-fit: cover;
+  border: 1px solid #315273;
   box-shadow: 0 10px 24px rgba(65, 209, 168, 0.25);
 }
 
