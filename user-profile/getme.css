@@ -1,0 +1,144 @@
+.profile-shell {
+  min-height: 100vh;
+  padding: 28px 16px;
+  display: grid;
+  place-items: center;
+}
+
+.profile-card {
+  width: min(100%, 760px);
+  border: 1px solid color-mix(in srgb, var(--line) 80%, #ffffff 20%);
+  border-radius: 22px;
+  padding: 26px;
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(8px);
+  animation: rise 0.45s ease-out both;
+}
+
+.profile-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.avatar {
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 1.28rem;
+  font-weight: 700;
+  color: #072015;
+  background: linear-gradient(135deg, #42dcb0, #8df3d2);
+  box-shadow: 0 10px 24px rgba(65, 209, 168, 0.25);
+}
+
+.kicker {
+  margin: 0;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  color: #86a4c8;
+}
+
+.profile-title {
+  margin: 3px 0;
+  font-size: clamp(1.4rem, 2.2vw, 2rem);
+}
+
+.profile-subtitle {
+  margin: 0;
+  color: var(--muted);
+}
+
+.stats-grid {
+  margin: 16px 0 18px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.stat-box {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 12px;
+}
+
+.stat-label {
+  margin: 0 0 4px;
+  color: var(--muted);
+  font-size: 0.84rem;
+}
+
+.stat-value {
+  margin: 0;
+  font-weight: 650;
+}
+
+.stat-value.success {
+  color: #75e9b8;
+}
+
+.details-panel {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 14px;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.details-panel h2 {
+  margin: 0 0 12px;
+  font-size: 1.1rem;
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 0;
+  border-top: 1px solid rgba(159, 176, 199, 0.16);
+}
+
+.detail-row:first-of-type {
+  border-top: 0;
+}
+
+.detail-row span {
+  color: var(--muted);
+}
+
+.profile-actions {
+  margin-top: 18px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.logout-btn {
+  text-decoration: none;
+  color: #2a0909;
+  background: linear-gradient(135deg, #ff8f8f, #ff6b6b);
+  box-shadow: 0 10px 20px rgba(255, 107, 107, 0.28);
+}
+
+@media (max-width: 680px) {
+  .profile-card {
+    padding: 18px 14px;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-actions {
+    justify-content: stretch;
+  }
+
+  .logout-btn {
+    width: 100%;
+    text-align: center;
+  }
+}
