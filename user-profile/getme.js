@@ -149,9 +149,29 @@ async function getCurrentUser() {
 
 logoutBtn.addEventListener("click", (event) => {
   event.preventDefault();
-  localStorage.removeItem("accessToken");
-  localStorage.removeItem("user");
-  window.location.href = "../index.html";
+  handleLogout();
 });
 
 window.addEventListener("load", getCurrentUser);
+
+async function handleLogout() {
+  const accessToken = localStorage.getItem("accessToken");
+
+  try {
+    if (accessToken) {
+      await fetch("https://api.freeapi.app/api/v1/users/logout", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          Authorization: `Bearer ${accessToken}`,
+        },
+      });
+    }
+  } catch (error) {
+    showToast("Network issue while logging out. Clearing local session.", "error");
+  } finally {
+    localStorage.removeItem("accessToken");
+    localStorage.removeItem("user");
+    window.location.href = "../index.html";
+  }
+}

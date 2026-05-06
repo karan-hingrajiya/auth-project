@@ -108,7 +108,6 @@ Fix:
 ## Future Improvements
 
 - Backend-set `HttpOnly` refresh-token cookie (more secure production setup)
-- Dedicated logout API integration
 - Route guard utility for all protected pages
 - Token refresh flow + silent re-auth
 
