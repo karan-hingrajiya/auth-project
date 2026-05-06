@@ -113,6 +113,9 @@ async function registerUser(event) {
 
     showToast("Registration successful. You can log in now.", "success");
     registerForm.reset();
+    setTimeout(() => {
+      window.location.href = "../index.html";
+    }, 700);
   } catch (error) {
     showToast("Network issue. Check your connection and retry.", "error");
   } finally {
