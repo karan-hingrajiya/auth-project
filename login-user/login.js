@@ -104,6 +104,9 @@ async function loginUser(event) {
 
     showToast("Login successful. Welcome back.", "success");
     loginForm.reset();
+    setTimeout(() => {
+      window.location.href = "../user-profile/getme.html";
+    }, 700);
   } catch (error) {
     showToast("Network issue. Check your connection and retry.", "error");
   } finally {
